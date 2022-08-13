@@ -41,10 +41,11 @@ class _HomePageState extends State<HomePage> {
             values[key]["password"],
             values[key]["role"],
           );
-
           dataList.add(pers);
         }
-        role = pers.role;
+        setState(() {
+          role = pers.role;
+        });
       });
     }
   }
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _userRole() {
     if (dataList.isEmpty) {
-      return Center(child: Text("no data"));
+      return const Center(child: Text("no data"));
     } else {
       return Text(role);
     }
